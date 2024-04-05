@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <servlet>
+        <servlet-name>displayBookServlet</servlet-name>
+        <servlet-class>servlet.displayBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addBookServlet</servlet-name>
+        <servlet-class>servlet.addBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>selectByIdServlet</servlet-name>
+        <servlet-class>servlet.selectByIdServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateBookServlet</servlet-name>
+        <servlet-class>servlet.updateBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteBookServlet</servlet-name>
+        <servlet-class>servlet.deleteBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>displayBookServlet</servlet-name>
+        <url-pattern>/displayBookServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addBookServlet</servlet-name>
+        <url-pattern>/addBookServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>selectByIdServlet</servlet-name>
+        <url-pattern>/selectByIdServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateBookServlet</servlet-name>
+        <url-pattern>/updateBookServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteBookServlet</servlet-name>
+        <url-pattern>/deleteBookServlet</url-pattern>
+    </servlet-mapping>
+        <welcome-file-list>
+        <welcome-file>displayBook</welcome-file>
+    </welcome-file-list>
+</web-app>
