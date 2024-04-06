@@ -1,0 +1,52 @@
+Bai 3 tieng phap
+
+User sẽ nhập username và password
+Client sẽ gửi response tới servlet
+Servlet lấy giá trị của username và password để kiểm tra trong hàm authenticate
+
+
+
+ 
+LoginFilter
+	Check login trước khi vào Servlet
+	Trường hợp chưa login thì di chuyển đến login.jsp
+	Trươnờ hợp đã login thì di chuyển đén Servlet mong muốn.
+
+RegisterServlet (done)
+Hệ thống sẽ getParameter của 2 trường username và password (xong)
+Khi nhân submit thì hệ thống sẽ kiểm tra xem người dùng đã tồn tại chưa? (xong)
+Nếu đã tồn tại, in ra người dùng đã tồn tại (xong)
+Nếu chưa tồn tại, thì thêm người dùng vào database (dùng câu lệnh kiểm tra) (xong)
+Nếu người dùng submit mà không nhập đủ 2 trường thì hiện ra màn hình , yêu cầu người dùng phải nhập.
+
+LoginServlet (done)
+Hệ thống sẽ getParameter của 2 trường username và password
+Khi nhân submit thì hệ thống sẽ kiểm tra xem người dùng đã tồn tại chưa?
+gọi hàm authenticate sẽ kiểm tra username và password.
+Nếu không trùng thì thông báo ra màn hình là username và password khong đúng. Trả về trang login
+Nếu username và password trùng thì gọi Authorize theo id 
+Nếu id = 1 => thì chuyển hướng đến trang admin
+Nếu id = 2 => thì chuyển hướng đến trang home
+
+
+HomeServlet
+Dùng session để lưu thông tin đăng nhập, LOGIN lần đầu thì lần sau sẽ không cần login nữa
+Khi logout thì sẽ xóa luôn session và trả về trang login.
+trang home thì để thể hiện cái tên của user, sử dụng cookie.Dùng cookie để lưu username
+
+
+Kiểm tra xác thực trong LoginServlet: Trong phương thức doPost của LoginServlet, sau khi xác thực người dùng, bạn có thể tạo session và lưu thông tin người dùng vào session ( LOGIN lần đầu thì lần sau sẽ không cần login nữa) . Điều này sẽ đảm bảo rằng thông tin người dùng được lưu trữ an toàn và không thể thay đổi bởi người dùng.
+
+Hiển thị thông tin người dùng trong HomeServlet: Trong phương thức doGet của HomeServlet, bạn có thể kiểm tra xem session tồn tại và lấy thông tin người dùng từ session. Sau đó, bạn có thể hiển thị tên người dùng trên trang home và sử dụng cookie để lưu tên người dùng sau đó lấy username của người duùng được lưu trong cookie và hiển thị lên trang home.jsp <a class="nav-link">Hello, <%= request.getAttribute("username") %> !!!</a>.
+
+Xóa session và cookie khi người dùng logout: Trong phương thức doPost của LoginServlet, sau khi người dùng logout, bạn có thể xóa session và cookie liên quan đến tên người dùng để đảm bảo rằng thông tin không còn tồn tại sau khi người dùng logout.
+
+AdminServlet
+trang admin thì dùng để quản lý user (trừ user admin)
+trang admin có thể getAll, tim kiếm theo username, thêm , xóa, cập nhật.  
+
+
+
+
+
+

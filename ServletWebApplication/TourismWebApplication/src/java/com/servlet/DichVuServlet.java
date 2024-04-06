@@ -68,16 +68,10 @@ public class DichVuServlet extends HttpServlet {
 
         List<ThanhPho> thanhPhoList = thanhPhoDAO.getAll();
         request.setAttribute("thanhPhoList", thanhPhoList);
-//              
-////        String cityId = request.getParameter("thanhpho"); // Lấy giá trị của tham số "cityId"
-////        int idThanhPho = Integer.parseInt(cityId); // Chuyển đổi thành số nguyên (Id của thành phố)
-//
+
         List<Quan> quanList = quanDAO.getAll();
         request.setAttribute("quanList", quanList);
-//        
-//        String quanId = request.getParameter("quan"); 
-////        int idQuan = Integer.parseInt(quanId); 
-//        
+      
         List<Phuong> phuongList = phuongDAO.getAll();
         request.setAttribute("phuongList", phuongList);
         String action = request.getParameter("action");
@@ -124,36 +118,7 @@ public class DichVuServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            // Nhận các tham số từ request
-            String tenDiaDiem = request.getParameter("diadiemValue");
-            int idDichVu = parseIntParameter(request.getParameter("dichVuId"));
-            int idGia = parseIntParameter(request.getParameter("giaId"));
-            int idPhuong = parseIntParameter(request.getParameter("phuongId"));
-            int idQuan = parseIntParameter(request.getParameter("districtId"));
-            int idThanhPho = parseIntParameter(request.getParameter("cityId"));
-
-            // Gọi phương thức SearchDiaDiem từ DAO
-            List<DiaDiem> diaDiemList = diaDiemDAO.SearchDiaDiem(tenDiaDiem, idDichVu, idGia, idPhuong, idQuan, idThanhPho);
-
-            // Chuyển đổi danh sách thành dạng JSON
-            Gson gson = new Gson();
-            String json = gson.toJson(diaDiemList);
-
-            System.out.println("JSON string: " + json);
-            // Gửi kết quả về client
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(json);
-        } catch (NumberFormatException e) {
-            // Xử lý ngoại lệ NumberFormatException
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            response.getWriter().write("Invalid parameters: " + e.getMessage());
-        } catch (Exception e) {
-            // Xử lý ngoại lệ khác
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getWriter().write("An error occurred: " + e.getMessage());
-        }
+        
     }
 
 // Phương thức hỗ trợ để chuyển đổi chuỗi thành số nguyên và xử lý trường hợp null
