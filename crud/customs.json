@@ -1,0 +1,16 @@
+{
+    "elements": {},
+    "attributes": {
+        "th:text": {
+            "context": "td"
+        },
+        "th:object": {},
+        "th:src": {},
+        "th:errors": {},
+        "th:each": {},
+        "th:href": {},
+        "th:field": {},
+        "th:erros": {},
+        "th:value": {}
+    }
+}

@@ -41,7 +41,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label for="thanhpho">Thành phố</label>
-                            <select class="form-control" id="thanhPhoDropdown" name="thanhPhoDropdown" onchange="onCityChange()">
+                            <select class="form-control" id="thanhPhoDropdown" name="thanhPhoDropdown" onchange="onCityChange()" >
                                 <option value="" selected>Hãy chọn thành phố</option>
                                 <c:forEach items="${thanhPhoList}" var="thanhpho">
                                     <option value="${thanhpho.id}">${thanhpho.tenThanhPho}</option>

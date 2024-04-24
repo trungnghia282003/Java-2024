@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Product Manager</title>
+        <!-- Thêm liên kết tới Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div align="center">
+                <h1>Product List</h1>
+                <a class="btn btn-primary mb-3" href="/new">Create New Product</a>
+                <br/>
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Name</th>
+                            <th>Brand</th>
+                            <th>Made In</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="product : ${listProducts}">
+                            <td th:text="${product.id}">Product ID</td>
+                            <td th:text="${product.name}">Name</td>
+                            <td th:text="${product.brand}">Brand</td>
+                            <td th:text="${product.madein}">Made in</td>
+                            <td th:text="${product.price}">Price</td>
+                            <td>
+                                <a class="btn btn-info btn-sm" th:href="@{/edit(id=${product.id})}">Edit</a>
+                                <a class="btn btn-danger btn-sm" th:href="@{/delete(id=${product.id})}">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Thêm liên kết tới Bootstrap JS và jQuery (để Bootstrap hoạt động) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+                integrity="sha384-XFYBj5eYm/cmkHCnDpAOQ/CrLlVMgGktTpDGn5ZfwNdNJ2C0qAd7JNYfPFhXtJxt"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-+0n0xVW2eSR5G9GnyZEjLc5gfvzuxw8Sm3m3y30Ck4v/Jm57QOwx64K+FviK2v8B"
+        crossorigin="anonymous"></script>
+    </body>
+</html>

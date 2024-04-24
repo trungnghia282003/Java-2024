@@ -57,7 +57,7 @@
 				<c:if test="${todo != null}">
 					<input type="hidden" name="id" value="<c:out value='${todo.id}' />" />
 				</c:if>
-
+				
 				<fieldset class="form-group">
 					<label>Todo Title</label> <input type="text"
 						value="<c:out value='${todo.title}' />" class="form-control"
